@@ -1,5 +1,4 @@
 const Card = require('../models/card');
-const IternalErr = require('../errors/IternalErr');
 const BadRequestErr = require('../errors/BadRequestErr');
 const NotFoundErr = require('../errors/NotFoundErr');
 const ForbiddenErr = require('../errors/ForbiddenErr');
@@ -9,9 +8,7 @@ module.exports.getCards = (req, res, next) => {
     .then((cards) => {
       res.status(200).send(cards);
     })
-    .catch(() => {
-      next(new IternalErr());
-    })
+    .catch(next);
 };
 
 module.exports.createCard = (req, res, next) => {
@@ -28,7 +25,7 @@ module.exports.createCard = (req, res, next) => {
       });
     })
     .catch((err) => {
-      if (err.name === 'CastError' || err.name === 'ValidationError') {
+      if (err.name === 'ValidationError') {
         next(new BadRequestErr('Невозможно создать карточку, проверьте введенные данные'));
       } else {
         next(err);
@@ -43,7 +40,7 @@ module.exports.deleteCard = (req, res, next) => {
     })
     .then(({ owner }) => {
       if (owner.toString() === req.user._id) {
-        Card.findByIdAndRemove(req.params.id).then((card) => {
+        Card.deleteOne(req.params.id).then((card) => {
           res.status(200).send(card);
         });
       } else {

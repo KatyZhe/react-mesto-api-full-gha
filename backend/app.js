@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 
@@ -20,8 +19,8 @@ mongoose.connect('mongodb://localhost:27017/mestodb');
 app.use(cors());
 
 app.use(cookieParser());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(requestLogger);
 
 app.get('/crash-test', () => {
@@ -36,8 +35,8 @@ app.use(auth);
 app.use('/', require('./routes/users'));
 app.use('/', require('./routes/cards'));
 
-app.use(() => {
-  throw new NotFoundErr('Страница не найдена');
+app.use((res, req, next) => {
+  next(new NotFoundErr('Страница не найдена'));
 });
 
 app.use(errorLogger);
