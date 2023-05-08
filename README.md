@@ -4,7 +4,7 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Адрес репозитория: https://github.com/...
+Адрес репозитория: https://github.com/KatyZhe/react-mesto-api-full-gha
 
 ## Ссылки на проект
 
@@ -12,4 +12,4 @@ IP-адрес 158.160.100.223
 
 Frontend https://katyzhe.nomoredomains.monsters
 
-Backend https://...
+Backend https://api.katyzhe.nomoredomains.monsters
