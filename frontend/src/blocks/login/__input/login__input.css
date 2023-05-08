@@ -1,0 +1,19 @@
+.login__input {
+    width: 358px;
+    height: 27px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    margin: 0 auto;
+    margin-bottom: 13px;
+    font-family: 'Inter', Verdana, Tahoma, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #fff;
+    background-color: #000;
+}
+
+.login__input:nth-of-type(2n) {
+  margin-bottom: 216px;
+}

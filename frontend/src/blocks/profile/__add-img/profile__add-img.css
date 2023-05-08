@@ -1,0 +1,11 @@
+@media screen and (min-width: 320px) and (max-width: 1023px) {
+  .profile__add-img {
+    width: 16px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .profile__add-img {
+    width: 22px;
+  }
+}

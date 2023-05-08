@@ -1,0 +1,10 @@
+.login__signin-link {
+    display: block;
+    min-width: 358px;
+    height: 17px;
+    margin: 0 auto 35px;
+    text-align: center;
+    font-family: Inter, Verdana, Tahoma, sans-serif;
+    font-size: 14px;
+    color: #fff;
+}

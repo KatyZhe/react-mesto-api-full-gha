@@ -1,0 +1,4 @@
+.header__authbox {
+    display: flex;
+    flex-direction: row;
+}

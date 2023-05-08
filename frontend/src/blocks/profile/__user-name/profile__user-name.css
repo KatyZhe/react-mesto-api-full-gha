@@ -1,0 +1,28 @@
+.profile__user-name {
+  margin: 0;
+  font-family: 'Inter', Verdana, Tahoma, sans-serif;
+  font-weight: 500;
+  color: #FFF;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1023px) {
+  .profile__user-name {
+    max-width: 250px;
+    font-size: 27px;
+    line-height: 33px;
+    text-align: center;
+    margin-right: 10px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .profile__user-name {
+    max-width: 500px;
+    font-size: 42px;
+    line-height: 48px;
+    margin-right: 18px;
+  }
+}

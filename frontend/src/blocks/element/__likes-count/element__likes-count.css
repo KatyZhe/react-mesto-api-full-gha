@@ -1,0 +1,11 @@
+.element__likes-count {
+    margin: auto;
+    width: 10px;
+    height: 13px;
+    font-size: 13px;
+    font-family: Inter, Verdana, Tahoma, sans-serif;
+    font-weight: 400;
+    line-height: 100%;
+    text-align: center;
+    color: #000;
+}
