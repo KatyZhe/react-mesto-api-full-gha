@@ -1,4 +1,4 @@
-const BASE_URL = "https://auth.nomoreparties.co";
+const BASE_URL = "https://api.katyzhe.nomoredomains.monsters";
 
 const headers = {
   Accept: "application/json",
