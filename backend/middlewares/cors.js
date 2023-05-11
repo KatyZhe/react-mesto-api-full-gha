@@ -1,28 +1,26 @@
 const allowedCors = [
-  "http://katyzhe.nomoredomains.monster",
-  "https://katyzhe.nomoredomains.monster",
-  "http://api.katyzhe.nomoredomains.monster",
-  "https://api.katyzhe.nomoredomains.monster",
-  "localhost:3000",
-  "http://localhost:3000",
-  "http://localhost:3001",
-];
-
-module.exports = (req, res, next) => {
-  const { origin } = req.headers;
-  const { method } = req;
-  const requestHeaders = req.headers["access-control-request-headers"];
-  const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
-
-  if (allowedCors.includes(origin)) {
-    res.header("Access-Control-Allow-Origin", origin);
-  }
-
-  if (method === "OPTIONS") {
-    res.header("Access-Control-Allow-Methods", DEFAULT_ALLOWED_METHODS);
-    res.header("Access-Control-Allow-Headers", requestHeaders);
-    return res.end();
-  }
-
-  return next();
-};
+    'http://katyzhe.nomoredomains.monster/',
+    'https://katyzhe.nomoredomains.monster',
+    'http://api.katyzhe.nomoredomains.monster/',
+    'https://api.katyzhe.nomoredomains.monster',
+    'http://localhost:3000',
+    'https://localhost:3000',
+  ];
+  
+  
+  
+  module.exports = (req, res, next) => {
+    const { origin } = req.headers;
+    const { method } = req;
+    const requestHeaders = req.headers['access-control-request-headers'];
+    const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
+    if (allowedCors.includes(origin)) {
+      res.header('Access-Control-Allow-Origin', origin);
+    }
+    if (method === 'OPTIONS') {
+      res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
+      res.header('Access-Control-Allow-Headers', requestHeaders);
+      res.end();
+    }
+    next();
+  };

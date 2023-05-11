@@ -4,12 +4,12 @@ const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 
 const { auth } = require('./middlewares/auth');
-const cors = require('./middlewares/cors');
 const NotFoundErr = require('./errors/NotFoundErr');
 const { login, createUser} = require('./controllers/users');
 const { validateUser } = require('./validation/validation');
 const errorHandler = require('./middlewares/errorHandler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('./middlewares/cors')
 
 const { PORT = 3000 } = process.env;
 const app = express();
