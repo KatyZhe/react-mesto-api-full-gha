@@ -16,12 +16,11 @@ const app = express();
 
 mongoose.connect('mongodb://localhost:27017/mestodb');
 
-app.use(cors());
-
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(requestLogger);
+app.use(cors());
 
 app.get('/crash-test', () => {
   setTimeout(() => {
