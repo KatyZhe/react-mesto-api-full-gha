@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 
 const { auth } = require('./middlewares/auth');
+const cors = require('./middlewares/cors');
 const NotFoundErr = require('./errors/NotFoundErr');
 const { login, createUser} = require('./controllers/users');
 const { validateUser } = require('./validation/validation');

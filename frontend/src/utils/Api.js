@@ -79,7 +79,7 @@ const configApi = {
   url: "https://api.katyzhe.nomoredomains.monsters",
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${localStorage.getItem('token')}`,
+    Authorization: `Bearer ${localStorage.getItem('jwt')}`,
   }
 };
 
