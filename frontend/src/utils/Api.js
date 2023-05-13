@@ -76,7 +76,7 @@ class Api {
 }
 
 const configApi = {
-  url: "http://api.katyzhe.nomoredomains.monsters",
+  url: "http://api.katyzhe.nomoredomains.monster/",
   headers: {
     "Content-Type": "application/json",
     Authorization: `Bearer ${localStorage.getItem('jwt')}`,
