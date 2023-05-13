@@ -18,6 +18,6 @@ module.exports.auth = (req, res, next) => {
 
     next();
   } catch (err) {
-    return next(new UnauthorizedErr('Необходимо авторизоваться'));
+    throw next(new UnauthorizedErr('Необходимо авторизоваться'));
   }
 };
