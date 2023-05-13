@@ -1,3 +1,4 @@
+require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { JWT_SECRET, NODE_ENV } = require('../config');
@@ -122,16 +123,9 @@ module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
   User.findUserByCredentials(email, password)
     .then((user) => {
-      
       const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' });
-      res
-        .cookie('jwt', token, {
-          expires: new Date(Date.now() + 7 * 24 * 3600000),
-          httpOnly: true,
-          sameSite: true,
-        })
-        .status(200)
-        .send({ message: 'Вы авторизованы' });
+      console.log(token);
+      res.send({ token });
     })
     .catch(next);
 };

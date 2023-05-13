@@ -1,4 +1,4 @@
-const BASE_URL = "http://api.katyzhe.nomoredomains.monsters";
+const BASE_URL = "https://api.katyzhe.nomoredomains.monsters";
 
 const headers = {
   Accept: "application/json",
@@ -42,18 +42,25 @@ export const authorize = ({ email, password }) => {
           : `Что-то пошло не так. Код ошибки: ${res.status}`
       }.`,
       isServerError: true,
-    }).catch((err) => {
+    })
+    .then((data) => {
+      if (data.token) {
+        localStorage.setItem('jwt', data.token);
+        return data.token;
+      }
+    })
+    .catch((err) => {
       console.log(`Ошибка: ${err}`);
     });
   });
 };
 
-export const getContent = (jwt) => {
+export const getContent = (token) => {
   return fetch(`${BASE_URL}/users/me`, {
     method: "GET",
     headers: {
       ...headers,
-      Authorization: `Bearer ${jwt}`,
+      Authorization: `Bearer ${token}`,
     },
   })
     .then((res) => {
